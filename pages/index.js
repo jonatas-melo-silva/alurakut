@@ -19,7 +19,7 @@ export default function Home() {
   const followers = ['davidallysson', 'Paulo-Costa', 'Breno-Silva1', 'mergirl', 'AdlemDutra', 'Kristian-Roopnarine']
   const favoritePersons = [
     'juunegreiros',
-    'mariosouto',
+    'omariosouto',
     'peas',
     'rafaballerini',
     'marcobrunodev',
