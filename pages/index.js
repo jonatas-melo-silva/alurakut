@@ -7,7 +7,7 @@ function ProfileSideBar(props) {
   return (
     <Box>
       <img
-        src={`https://github.com/${props.githubUserImage}.png`}
+        src={`https://github.com/${props.githubUser}.png`}
         alt="Foto Perfil"
       />
     </Box>
@@ -15,7 +15,8 @@ function ProfileSideBar(props) {
 }
 
 export default function Home() {
-  const githubUserImage = 'jonatas-melo-silva'
+  const githubUser = 'jonatas-melo-silva'
+  const followers = ['davidallysson', 'Paulo-Costa', 'Breno-Silva1', 'mergirl', 'AdlemDutra', 'Kristian-Roopnarine']
   const favoritePersons = [
     'juunegreiros',
     'mariosouto',
@@ -30,7 +31,7 @@ export default function Home() {
       <AlurakutMenu />
       <MainGrid>
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
-          <ProfileSideBar githubUserImage={githubUserImage} />
+          <ProfileSideBar githubUser={githubUser} />
         </div>
         <div className="welcomeAre" style={{ gridArea: 'welcomeAre' }}>
           <Box>
@@ -44,6 +45,7 @@ export default function Home() {
           className="ProfileRelationsAre"
           style={{ gridArea: 'ProfileRelationsAre' }}
         >
+          {/* Comunidade */}
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">
               Pessoas da comunidade ({favoritePersons.length})
@@ -59,6 +61,28 @@ export default function Home() {
                         alt="Foto Perfil"
                       />
                       <span>{person}</span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </ProfileRelationsBoxWrapper>
+          {/* seguidores */}
+          <ProfileRelationsBoxWrapper>
+          <h2 className="smallTitle">
+              Meus Seguidores ({followers.length})
+            </h2>
+
+            <ul>
+              {followers.map(follower => {
+                return (
+                  <li>
+                    <a href={`/users/${follower.login}`} key={follower}>
+                      <img
+                        src={`http://github.com/${follower}.png`}
+                        alt="Foto Perfil"
+                      />
+                      <span>{follower}</span>
                     </a>
                   </li>
                 )
