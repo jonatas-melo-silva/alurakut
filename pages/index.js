@@ -34,6 +34,11 @@ export default function Home() {
       id: new Date().toISOString(),
       title: 'Eu odeio acordar cedo',
       image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
+    },
+    {
+      id: new Date().toISOString(),
+      title: 'Só os pintas',
+      image: 'https://randomuser.me/api/portraits/lego/1.jpg'
     }
   ])
   const followers = [
@@ -79,7 +84,6 @@ export default function Home() {
                 }
                 const updatedCommunities = [...communities, community]
                 setCommunities(updatedCommunities)
-                alert(communities)
               }}
             >
               <div>
@@ -87,6 +91,7 @@ export default function Home() {
                   placeholder="Qual vai ser o nome da sua comunidade?"
                   type="text"
                   name="title"
+                  required
                   aria-label="Qual vai ser o nome da sua comunidade?"
                 />
               </div>
@@ -95,6 +100,7 @@ export default function Home() {
                   placeholder="Coloque a url da imagem para usarmos de capa"
                   name="image"
                   type="url"
+                  required
                   aria-label="Coloque a url da imagem para usarmos de capa"
                 />
               </div>
@@ -107,7 +113,7 @@ export default function Home() {
           className="ProfileRelationsAre"
           style={{ gridArea: 'ProfileRelationsAre' }}
         >
-          {/* Comunidade */}
+          {/* Comunidades */}
           <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">Comunidades ({communities.length})</h2>
 
@@ -115,8 +121,11 @@ export default function Home() {
               {communities.map(community => {
                 return (
                   <li key={community.id}>
-                    <a href={`/users/${community.title}`} key={community.title}>
-                      <img src={community.image} alt="Foto da Comunidade" />
+                    <a href={`/users/${community.title}`}>
+                      <img
+                        src={community.image}
+                        alt="Foto da Comunidade"
+                      />
                       <span>{community.title}</span>
                     </a>
                   </li>
