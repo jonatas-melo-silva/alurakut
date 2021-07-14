@@ -109,7 +109,7 @@ export default function Home() {
         >
           {/* Comunidade */}
           <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Comunidade ({communities.length})</h2>
+            <h2 className="smallTitle">Comunidades ({communities.length})</h2>
 
             <ul>
               {communities.map(community => {
