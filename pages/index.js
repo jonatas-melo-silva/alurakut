@@ -29,11 +29,13 @@ function ProfileSideBar(props) {
 
 export default function Home() {
   const githubUser = 'jonatas-melo-silva'
-  const [communities, setCommunities] = useState([{
-    id: new Date().toISOString(),
-    title: 'Eu odeio acordar cedo',
-    image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
-  }]);
+  const [communities, setCommunities] = useState([
+    {
+      id: new Date().toISOString(),
+      title: 'Eu odeio acordar cedo',
+      image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
+    }
+  ])
   const followers = [
     'davidallysson',
     'Paulo-Costa',
@@ -68,12 +70,12 @@ export default function Home() {
             <form
               onSubmit={function handleCreateCommunity(e) {
                 e.preventDefault()
-                const formData = new FormData(e.target);
+                const formData = new FormData(e.target)
 
                 const community = {
                   id: new Date().toISOString(),
                   title: formData.get('title'),
-                  image: formData.get('image'),
+                  image: formData.get('image')
                 }
                 const updatedCommunities = [...communities, community]
                 setCommunities(updatedCommunities)
@@ -90,10 +92,10 @@ export default function Home() {
               </div>
               <div>
                 <input
-                  placeholder="Coloque uma url para usarmos de capa"
+                  placeholder="Coloque a url da imagem para usarmos de capa"
                   name="image"
-                  // type="url"
-                  aria-label="Coloque uma url para usarmos de capa"
+                  type="url"
+                  aria-label="Coloque a url da imagem para usarmos de capa"
                 />
               </div>
 
@@ -114,10 +116,7 @@ export default function Home() {
                 return (
                   <li key={community.id}>
                     <a href={`/users/${community.title}`} key={community.title}>
-                      <img
-                        src={community.image}
-                        alt="Foto da Comunidade"
-                      />
+                      <img src={community.image} alt="Foto da Comunidade" />
                       <span>{community.title}</span>
                     </a>
                   </li>
